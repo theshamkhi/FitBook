@@ -24,7 +24,7 @@ CREATE TABLE reservations (
     FOREIGN KEY (ActiviteID) REFERENCES Activites(ActiviteID)
 );
 
-
+-- Inserting for testing
 INSERT INTO membres (Nom, Prenom, Telephone, Email) VALUES
 ('CHAMKHI', 'Mohammed', '212-636-253939', 'theshamkhi1@gmail.com');
 
@@ -36,5 +36,5 @@ INSERT INTO activites (Nom, Description) VALUES
 ('CrossFit', 'A high-intensity workout combining strength and cardio exercises.');
 
 
-INSERT INTO reservations (MembreID, ActiviteID, ReservationDate) VALUES
+INSERT INTO reservations (MembreID, ActiviteID, ReservationDate) VALUES 
 (1, 1, '2024-12-15 09:00:00');
