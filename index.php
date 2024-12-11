@@ -1,3 +1,3 @@
 <?php
-    echo"Mohammed CHAMKHI";
+    echo"Main Page";
 ?>

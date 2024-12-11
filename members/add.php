@@ -2,14 +2,14 @@
 include('../config/db.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $_POST['name'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $join_date = $_POST['join_date'];
 
-    $sql = "INSERT INTO members (name, email, phone, join_date) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO membres (Prenom, Nom, Email, Telephone) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssss", $name, $email, $phone, $join_date);
+    $stmt->bind_param("ssss", $firstname, $lastname, $email, $phone);
 
     if ($stmt->execute()) {
         echo "Membre ajouté avec succès.";
@@ -19,9 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 <form method="POST">
-    <input type="text" name="name" placeholder="Nom" required>
+    <input type="text" name="firstname" placeholder="Prénom" required>
+    <input type="text" name="lastname" placeholder="Nom" required>
     <input type="email" name="email" placeholder="Email" required>
     <input type="text" name="phone" placeholder="Téléphone" required>
-    <input type="date" name="join_date" required>
     <button type="submit">Ajouter</button>
 </form>
+
