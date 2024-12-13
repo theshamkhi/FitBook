@@ -42,13 +42,13 @@
 
         <form method="POST" class="max-w-lg mx-auto mt-4 p-6 bg-white rounded-lg shadow-md space-y-6">
             <h1 class="text-2xl font-bold text-center text-gray-800">Reserve an Activity</h1>
-            <input type="text" name="firstname" placeholder="First name" required 
+            <input type="text" name="firstname" placeholder="First Name" required 
                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
-            <input type="text" name="lastname" placeholder="Last name" required 
+            <input type="text" name="lastname" placeholder="Last Name" required 
                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
             <input type="email" name="email" placeholder="Email" required 
                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
-            <input type="text" name="phone" placeholder="Phone number" required 
+            <input type="text" name="phone" placeholder="Phone Number" required 
                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
             <select name="activity" required 
                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">

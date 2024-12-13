@@ -21,11 +21,11 @@
                 <div class='overflow-x-auto'>
                     <table class='min-w-full bg-white border border-gray-200 rounded-lg shadow-lg'>
                         <thead>
-                            <tr class='bg-gray-100 border-b'>
-                                <th class='px-6 py-3 text-left text-sm font-medium text-gray-700 uppercase'>First name</th>
-                                <th class='px-6 py-3 text-left text-sm font-medium text-gray-700 uppercase'>Last name</th>
-                                <th class='px-6 py-3 text-left text-sm font-medium text-gray-700 uppercase'>Email</th>
-                                <th class='px-6 py-3 text-left text-sm font-medium text-gray-700 uppercase'>Phone number</th>
+                            <tr class='bg-gray-800 border-b'>
+                                <th class='px-6 py-3 text-left text-sm font-medium text-white uppercase'>First name</th>
+                                <th class='px-6 py-3 text-left text-sm font-medium text-white uppercase'>Last name</th>
+                                <th class='px-6 py-3 text-left text-sm font-medium text-white uppercase'>Email</th>
+                                <th class='px-6 py-3 text-left text-sm font-medium text-white uppercase'>Phone number</th>
                             </tr>
                         </thead>
                         <tbody>";
@@ -65,11 +65,11 @@
                 <div class='overflow-x-auto'>
                     <table class='min-w-full bg-white border border-gray-200 rounded-lg shadow-lg'>
                         <thead>
-                            <tr class='bg-gray-100 border-b'>
-                                <th class='px-6 py-3 text-left text-sm font-medium text-gray-700 uppercase'>Member Name</th>
-                                <th class='px-6 py-3 text-left text-sm font-medium text-gray-700 uppercase'>Email</th>
-                                <th class='px-6 py-3 text-left text-sm font-medium text-gray-700 uppercase'>Activity</th>
-                                <th class='px-6 py-3 text-left text-sm font-medium text-gray-700 uppercase'>Reservation Date</th>
+                            <tr class='bg-gray-800 border-b'>
+                                <th class='px-6 py-3 text-left text-sm font-medium text-white uppercase'>Member Name</th>
+                                <th class='px-6 py-3 text-left text-sm font-medium text-white uppercase'>Email</th>
+                                <th class='px-6 py-3 text-left text-sm font-medium text-white uppercase'>Activity</th>
+                                <th class='px-6 py-3 text-left text-sm font-medium text-white uppercase'>Reservation Date</th>
                             </tr>
                         </thead>
                         <tbody>";
