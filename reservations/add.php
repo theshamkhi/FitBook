@@ -10,20 +10,12 @@
     <?php
     include('../config/db.php');
 
-    $successMessage = '';
-    $errorMessage = '';
+    $message = '';
 
-    // Fetch activities for dropdown
-    $activities = [];
-    $activityQuery = "SELECT ActiviteID, Nom FROM activites";
-    $activityResult = $conn->query($activityQuery);
-    if ($activityResult && $activityResult->num_rows > 0) {
-        while ($row = $activityResult->fetch_assoc()) {
-            $activities[] = $row;
-        }
-    }
+    // Fetch activities
+    $activities = $conn->query("SELECT ActiviteID, Nom FROM activites")->fetch_all(MYSQLI_ASSOC);
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
         $email = $_POST['email'];
@@ -31,44 +23,20 @@
         $activityID = $_POST['activity'];
         $reservationDate = $_POST['reservation_date'];
 
-        // Insert member
-        $sqlMember = "INSERT INTO membres (Prenom, Nom, Email, Telephone) VALUES (?, ?, ?, ?)";
-        $stmtMember = $conn->prepare($sqlMember);
-        if ($stmtMember) {
-            $stmtMember->bind_param("ssss", $firstname, $lastname, $email, $phone);
-            if ($stmtMember->execute()) {
-                $memberID = $stmtMember->insert_id;
-
-                // Insert reservation
-                $sqlReservation = "INSERT INTO reservations (MembreID, ActiviteID, ReservationDate) VALUES (?, ?, ?)";
-                $stmtReservation = $conn->prepare($sqlReservation);
-                if ($stmtReservation) {
-                    $stmtReservation->bind_param("iis", $memberID, $activityID, $reservationDate);
-                    if ($stmtReservation->execute()) {
-                        $successMessage = "Reservation successfully created.";
-                    } else {
-                        $errorMessage = "Error: " . $conn->error;
-                    }
-                    $stmtReservation->close();
-                }
-            } else {
-                $errorMessage = "Error: " . $conn->error;
-            }
-            $stmtMember->close();
+        $conn->query("INSERT INTO membres (Prenom, Nom, Email, Telephone) VALUES ('$firstname', '$lastname', '$email', '$phone')");
+        $memberID = $conn->insert_id;
+        if ($conn->query("INSERT INTO reservations (MembreID, ActiviteID, ReservationDate) VALUES ('$memberID', '$activityID', '$reservationDate')")) {
+            $message = "Reservation successfully created.";
         } else {
-            $errorMessage = "Error: " . $conn->error;
+            $message = "An error occurred.";
         }
     }
     ?>
-    <main class="w-full px-4">
 
-        <?php if (!empty($successMessage)): ?>
+    <main class="w-full px-4">
+        <?php if ($message): ?>
             <div class="text-center mb-4 text-green-600 font-medium">
-                <?= $successMessage ?>
-            </div>
-        <?php elseif (!empty($errorMessage)): ?>
-            <div class="text-center mb-4 text-red-600 font-medium">
-                <?= $errorMessage ?>
+                <?= $message ?>
             </div>
         <?php endif; ?>
 

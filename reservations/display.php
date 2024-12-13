@@ -14,8 +14,7 @@
             <?php
             include('../config/db.php');
 
-            $sqlMembers = "SELECT * FROM membres";
-            $resultMembers = $conn->query($sqlMembers);
+            $resultMembers = $conn->query("SELECT * FROM membres");
 
             if ($resultMembers->num_rows > 0) {
                 echo "
@@ -53,14 +52,13 @@
         <section>
             <h1 class="text-2xl font-bold text-center text-gray-800 mb-4">Reservations</h1>
             <?php
-            $sqlReservations = "
-                SELECT r.ReservationID, m.Prenom, m.Nom, m.Email, a.Nom AS ActivityName, r.ReservationDate 
+            $resultReservations = $conn->query(
+                "SELECT r.ReservationID, m.Prenom, m.Nom, m.Email, a.Nom AS ActivityName, r.ReservationDate 
                 FROM reservations r
                 INNER JOIN membres m ON r.MembreID = m.MembreID
                 INNER JOIN activites a ON r.ActiviteID = a.ActiviteID
-                ORDER BY r.ReservationDate ASC
-            ";
-            $resultReservations = $conn->query($sqlReservations);
+                ORDER BY r.ReservationDate ASC"
+            );
 
             if ($resultReservations->num_rows > 0) {
                 echo "
